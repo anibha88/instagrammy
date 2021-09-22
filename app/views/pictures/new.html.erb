@@ -1,0 +1,13 @@
+<%= render 'layouts/error_messages', object: @picture if @picture.errors.any? %>
+<h2>Upload your picture</h2>
+<%= form_for @picture, html: { multipart: true } do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br>
+  <%= fields_for @comment do |fc| %>
+    <%= fc.label :comment %>
+    <%= fc.text_area :comment %>
+  <% end %>
+  <br><br>
+  <%= f.submit 'Upload Picture' %>
+<% end %>

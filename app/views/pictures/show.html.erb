@@ -1,0 +1,13 @@
+<%= render 'layouts/error_messages', object: @comment if @comment.errors.any? %>
+<section>
+  <div class="text-center picture-nav">
+    <div class="btn-group" role="group" aria-label="...">
+      <%= link_to "<span class=\"glyphicon glyphicon-chevron-left\"></span>".html_safe, picture_path(@previous_picture), class: "btn btn-default" %>
+      <%= link_to "Back to index", pictures_path, class: "btn btn-default" %>
+      <%= link_to "<span class=\"glyphicon glyphicon-chevron-right\"></span>".html_safe, picture_path(@next_picture), class: "btn btn-default" %>
+    </div>
+  </div><br>
+  <%= render @picture %>
+  <%= render 'pictures/comments', picture: @picture %>
+  <%= render 'pictures/comment_form', picture: @picture, comment: @comment %>
+</section>

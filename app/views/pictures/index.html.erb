@@ -1,0 +1,16 @@
+<% if @pictures.any? %>
+  <div class="col-xs-12 col-sm-12 col-md-12 center pagination"><%= will_paginate %></div>
+  <% @pictures.each do |picture| %>
+    <div class="col-xs-6 col-sm-4 col-md-3">
+      <%= link_to image_tag(picture.image.url(:thumb), class: "thumbnail center-block"), picture_path(picture), class: "picture-link" %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="container">
+    <h2>No pictures yet</h2>
+  </div>
+<% end %>
+<div class="col-xs-12 col-sm-12 col-md-12 center">
+  <br>
+  <%= link_to 'Add a picture', new_picture_path, class: "btn btn-lg btn-primary add-picture-button" %>
+</div>
